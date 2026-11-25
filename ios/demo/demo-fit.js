@@ -9,6 +9,7 @@
   const tapBlk = (s, opt) => () => D.tap(blk(s), opt);
   const skipRest = async () => { if (document.querySelector('[data-act=rest-skip]')) await D.tap('[data-act=rest-skip]', { after: 900 }); };
   D.run([
+    () => { try { META.notifAsked = true; saveMeta(); } catch (e) {} },
     () => D.wait(1500),
     () => D.scroll(700), () => D.scroll(-700),
     () => D.tap('[data-act=water][data-v="250"]', { after: 1600 }),
